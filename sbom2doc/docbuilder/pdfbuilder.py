@@ -133,7 +133,7 @@ class PDFBuilder(DocBuilder):
         i = 0
         newdata = []
         for d in data:
-            if self.table_validation[i] is not None:
+            if d is not None and self.table_validation[i] is not None:
                 # Column size validation
                 if len(d) > self.table_validation[i]:
                     if d not in self.note_data:
