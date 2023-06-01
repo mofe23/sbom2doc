@@ -26,8 +26,8 @@ class MarkdownBuilder(DocBuilder):
 
     def addrow(self, data):
         # Add row to table
-        table_row = " | ".join(d for d in data)
-        self.markdown_document.append(table_row)
+        table_row = " | ".join(d if d is not None else "?" for d in data)
+        self.markdown_document.append(f"| {table_row} |")
 
     def publish(self, filename):
         markdown_doc = SBOMOutput(filename=filename)
